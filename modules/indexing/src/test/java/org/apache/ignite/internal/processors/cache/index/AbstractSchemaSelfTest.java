@@ -314,7 +314,8 @@ public abstract class AbstractSchemaSelfTest extends AbstractIndexingCommonTest 
             keyFields = extraIdxKeyFields;
 
         // Index fields are followed by primary key fields and _KEY field.
-        List<IgniteBiTuple<String, Boolean>> fieldsList = new ArrayList<>(Arrays.asList(fields));
+        List<IgniteBiTuple<String, Boolean>> fieldsList = new ArrayList<>(fields.length + keyFields.size());
+        Collections.addAll(fieldsList, fields);
         fieldsList.addAll(keyFields);
 
         return fieldsList;
