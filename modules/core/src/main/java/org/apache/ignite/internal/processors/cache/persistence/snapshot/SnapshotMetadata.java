@@ -407,7 +407,8 @@ public class SnapshotMetadata implements Message, Serializable {
 
         SnapshotMetadata meta = (SnapshotMetadata)o;
 
-        return rqId.equals(meta.rqId) &&
+        return onlyPrimary == meta.onlyPrimary &&
+            rqId.equals(meta.rqId) &&
             snpName.equals(meta.snpName) &&
             consId.equals(meta.consId) &&
             Objects.equals(grpIds, meta.grpIds) &&
@@ -416,8 +417,7 @@ public class SnapshotMetadata implements Message, Serializable {
             Arrays.equals(encKey, meta.encKey) &&
             Objects.equals(warnings, meta.warnings) &&
             Objects.equals(hasComprGrps, meta.hasComprGrps) &&
-            Objects.equals(comprGrpIds, meta.comprGrpIds) &&
-            onlyPrimary == meta.onlyPrimary;
+            Objects.equals(comprGrpIds, meta.comprGrpIds);
     }
 
     /** {@inheritDoc} */
