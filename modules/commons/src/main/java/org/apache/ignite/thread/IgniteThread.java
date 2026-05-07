@@ -225,8 +225,7 @@ public class IgniteThread extends Thread {
     public static IgniteThread current() {
         Thread thread = Thread.currentThread();
 
-        return thread.getClass() == IgniteThread.class || thread instanceof IgniteThread ?
-            ((IgniteThread)thread) : null;
+        return thread instanceof IgniteThread ? (IgniteThread)thread : null;
     }
 
     /**
