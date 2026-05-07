@@ -33,7 +33,7 @@ public class IdleVerifyDumpResult extends IgniteDataTransferObject {
 
     /** Cluster hashes. */
     @Order(0)
-    LinkedHashMap<PartitionKey, List<PartitionHashRecord>> clusterHashes;
+    private LinkedHashMap<PartitionKey, List<PartitionHashRecord>> clusterHashes;
 
     /**
      * @param clusterHashes Cluster hashes.
