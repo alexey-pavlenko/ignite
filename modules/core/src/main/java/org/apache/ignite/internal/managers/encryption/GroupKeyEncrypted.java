@@ -38,7 +38,7 @@ public class GroupKeyEncrypted implements Serializable {
      */
     public GroupKeyEncrypted(int id, byte[] key) {
         this.id = id;
-        this.key = key;
+        this.key = key.clone();
     }
 
     /**
