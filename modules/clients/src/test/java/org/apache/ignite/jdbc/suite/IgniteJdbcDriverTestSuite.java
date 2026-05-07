@@ -214,12 +214,18 @@ import org.junit.runners.Suite;
     JdbcThinJdbcToCacheDataTypesCoverageTest.class
 })
 public class IgniteJdbcDriverTestSuite {
+    /** JDK property for disabled TLS algorithms. */
+    private static final String TLS_DISABLED_ALGORITHMS_PROP = "jdk.tls.disabledAlgorithms";
+
+    /** Cipher algorithm to disable. */
+    private static final String DISABLED_CIPHER = "3DES_EDE_CBC";
+
     /**
      * Enable NULL algorithm and keep 3DES_EDE_CBC disabled.
      * See {@link JdbcThinConnectionSSLTest#testDisabledCustomCipher()} for details.
      */
     @BeforeClass
     public static void init() {
-        Security.setProperty("jdk.tls.disabledAlgorithms", "3DES_EDE_CBC");
+        Security.setProperty(TLS_DISABLED_ALGORITHMS_PROP, DISABLED_CIPHER);
     }
 }
