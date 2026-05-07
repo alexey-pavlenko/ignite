@@ -453,7 +453,9 @@ public class IgniteClusterProcessProxy implements IgniteClusterEx {
 
         /** {@inheritDoc} */
         @Override public ClusterNode call() throws Exception {
-            return nodeId == null ? cluster().node() : cluster().node(nodeId);
+            IgniteCluster cluster = cluster();
+
+            return nodeId == null ? cluster.node() : cluster.node(nodeId);
         }
     }
 
