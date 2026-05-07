@@ -786,6 +786,7 @@ public class GridNioServer<T> {
             try {
                 ses0.offerStateChange((GridNioServer.SessionChangeRequest)fut0);
             }
+            
         
 
     catch (IgniteCheckedException e) {
