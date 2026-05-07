@@ -56,10 +56,9 @@ public class IgniteMessageFactoryImpl implements MessageFactory {
 
         /** {@inheritDoc} */
         @Override public boolean readFrom(Message msg, MessageReader reader) {
-            ByteBuffer buf = null;
-
-            if (reader instanceof DirectMessageReader)
-                buf = ((DirectMessageReader)reader).getBuffer();
+            ByteBuffer buf = reader instanceof DirectMessageReader
+                ? ((DirectMessageReader)reader).getBuffer()
+                : null;
 
             return msg.readFrom(buf, reader);
         }
