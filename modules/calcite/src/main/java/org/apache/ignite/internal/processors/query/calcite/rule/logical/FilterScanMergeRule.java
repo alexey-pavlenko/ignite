@@ -121,10 +121,7 @@ public abstract class FilterScanMergeRule<T extends ProjectableFilterableTableSc
         // We need to replace RexInputRef with RexLocalRef because TableScan doesn't have inputs.
         condition = RexUtils.replaceInputRefs(condition);
 
-        // Set default traits, real traits will be calculated for physical node.
-        RelTraitSet trait = cluster.traitSet();
-
-        RelNode res = createNode(cluster, scan, trait, condition);
+        RelNode res = createNode(cluster, scan, cluster.traitSet(), condition);
 
         if (res == null)
             return;
