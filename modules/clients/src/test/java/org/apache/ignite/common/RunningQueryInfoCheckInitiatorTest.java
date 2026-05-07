@@ -229,12 +229,9 @@ public class RunningQueryInfoCheckInitiatorTest extends JdbcThinAbstractSelfTest
             GridTestUtils.runAsync(() -> {
                     try (Connection conn = DriverManager.getConnection(CFG_URL_PREFIX + "nodeId="
                         + grid0NodeId + "@modules/clients/src/test/config/jdbc-security-config.xml")) {
-                        try (Statement stmt = conn.createStatement()) {
-                            stmt.execute(sql);
-
-                            ResultSet rs = stmt.getResultSet();
-
-                            while (rs != null && rs.next()) {
+                        try (Statement stmt = conn.createStatement();
+                             ResultSet rs = stmt.executeQuery(sql)) {
+                            while (rs.next()) {
                                 // No-op.
                             }
                         }
