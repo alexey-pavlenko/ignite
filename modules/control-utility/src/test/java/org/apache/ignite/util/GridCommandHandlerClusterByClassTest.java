@@ -1615,24 +1615,28 @@ public class GridCommandHandlerClusterByClassTest extends GridCommandHandlerClus
     public void testCacheAffinity() {
         Ignite ignite = crd;
 
-        IgniteCache<Object, Object> cache1 = ignite.createCache(new CacheConfiguration<>()
+        IgniteCache<Object, Object> affinityCache = ignite.createCache(new CacheConfiguration<>()
             .setAffinity(new RendezvousAffinityFunction(false, 32))
             .setBackups(1)
             .setName(DEFAULT_CACHE_NAME));
 
-        for (int i = 0; i < 100; i++)
-            cache1.put(i, i);
+        int expectedSize = 100;
+        for (int i = 0; i < expectedSize; i++)
+            affinityCache.put(i, i);
+
+        assertEquals(expectedSize, affinityCache.size(), "Cache should contain all inserted entries");
 
         injectTestSystemOut();
 
         assertEquals(EXIT_CODE_OK, execute("--cache", "list", ".*"));
 
-        String out = testOut.toString();
+        String output = testOut.toString();
 
-        assertContains(log, out, "cacheName=" + DEFAULT_CACHE_NAME);
-        assertContains(log, out, "prim=32");
-        assertContains(log, out, "mapped=32");
-        assertContains(log, out, "affCls=RendezvousAffinityFunction");
+        assertContains(log, output, "cacheName=" + DEFAULT_CACHE_NAME);
+        assertContains(log, output, "prim=32");
+        assertContains(log, output, "mapped=32");
+        assertContains(log, output, "affCls=RendezvousAffinityFunction");
+        assertContains(log, output, "backups=1");
     }
 
     /** */
