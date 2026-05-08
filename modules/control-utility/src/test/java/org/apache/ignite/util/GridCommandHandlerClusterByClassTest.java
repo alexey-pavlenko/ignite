@@ -1631,6 +1631,10 @@ public class GridCommandHandlerClusterByClassTest extends GridCommandHandlerClus
         assertEquals(EXIT_CODE_OK, execute("--cache", "list", ".*"));
 
         String output = testOut.toString();
+String output = testOut.toString();
+String output = testOut.toString();
+String output = testOut.toString();
+String output = testOut.toString();
 
         assertContains(log, output, "cacheName=" + DEFAULT_CACHE_NAME);
         assertContains(log, output, "prim=32");
