@@ -1641,6 +1641,32 @@ String output = testOut.toString();
         assertContains(log, output, "mapped=32");
         assertContains(log, output, "affCls=RendezvousAffinityFunction");
         assertContains(log, output, "backups=1");
+  
+    assertContains(log, output, "cacheName=" + DEFAULT_CACHE_NAME);
+        assertContains(log, output, "prim=32");
+        assertContains(log, output, "mapped=32");
+        assertContains(log, output, "affCls=RendezvousAffinityFunction");
+        assertContains(log, output, "backups=1");
+          assertContains(log, output, "cacheName=" + DEFAULT_CACHE_NAME);
+        assertContains(log, output, "prim=32");
+        assertContains(log, output, "mapped=32");
+        assertContains(log, output, "affCls=RendezvousAffinityFunction");
+        assertContains(log, output, "backups=1");
+          assertContains(log, output, "cacheName=" + DEFAULT_CACHE_NAME);
+        assertContains(log, output, "prim=32");
+        assertContains(log, output, "mapped=32");
+        assertContains(log, output, "affCls=RendezvousAffinityFunction");
+        assertContains(log, output, "backups=1");
+          assertContains(log, output, "cacheName=" + DEFAULT_CACHE_NAME);
+        assertContains(log, output, "prim=32");
+        assertContains(log, output, "mapped=32");
+        assertContains(log, output, "affCls=RendezvousAffinityFunction");
+        assertContains(log, output, "backups=1");
+          assertContains(log, output, "cacheName=" + DEFAULT_CACHE_NAME);
+        assertContains(log, output, "prim=32");
+        assertContains(log, output, "mapped=32");
+        assertContains(log, output, "affCls=RendezvousAffinityFunction");
+        assertContains(log, output, "backups=1");
     }
 
     /** */
