@@ -1956,14 +1956,7 @@ public final class GridTestUtils {
         assert file.exists();
         assert file.length() < Integer.MAX_VALUE;
 
-        byte[] bytes = new byte[(int)file.length()];
-
-        try (FileInputStream fis = new FileInputStream(file)) {
-            int readBytesCnt = fis.read(bytes);
-            assert readBytesCnt == bytes.length;
-        }
-
-        return bytes;
+        return Files.readAllBytes(file.toPath());
     }
 
     /**
